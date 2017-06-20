@@ -33,6 +33,11 @@ func ImageShow(w http.ResponseWriter, r *http.Request) {
 }
 
 func NewImage(w http.ResponseWriter, r *http.Request) {
+	err := ipFilter(r)
+	if err != nil {
+		fmt.Fprintln(w, err.Error())
+		return
+	}
 	file, handler, err := r.FormFile("file")
 	if err != nil {
 		fmt.Println(err)
