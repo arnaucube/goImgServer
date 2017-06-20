@@ -58,7 +58,7 @@ func NewImage(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Fprintln(w, "error al processar la imatge")
 	}
-	err = ioutil.WriteFile(fileName, data, 0777)
+	err = ioutil.WriteFile(config.Folder+"/"+fileName, data, 0777)
 	if err != nil {
 		fmt.Println(err)
 	}

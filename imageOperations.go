@@ -59,6 +59,6 @@ func imageToPNG(img image.Image) ([]byte, error) {
 }
 
 func Resize(img image.Image) image.Image {
-	r := resize.Resize(160, 0, img, resize.Lanczos3)
+	r := resize.Resize(uint(config.ImgWidth), uint(config.ImgHeigh), img, resize.Lanczos3)
 	return r
 }

@@ -1,0 +1,12 @@
+{
+    "folder": "files",
+    "blockedIPs": [
+        "192.168.1.3",
+        "147.116.48.158"
+    ],
+    "allowedIPs": [
+        "127.0.0.1"
+    ],
+    "imgWidth": 200,
+    "imgHeigh": 0
+}

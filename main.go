@@ -1,11 +1,14 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 )
 
 func main() {
+	readConfig("config.json")
+	fmt.Println(config)
 
 	router := NewRouter()
 
