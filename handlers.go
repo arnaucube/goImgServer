@@ -5,6 +5,7 @@ import (
 	"image/jpeg"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/gorilla/mux"
 )
@@ -36,6 +37,8 @@ func NewImage(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println(err)
 	}
+	imageName := strings.Split(handler.Filename, ".")[0]
+	fileName := imageName + ".png"
 	data, err := ioutil.ReadAll(file)
 	if err != nil {
 		fmt.Println(err)
@@ -46,14 +49,14 @@ func NewImage(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintln(w, "error al processar la imatge")
 	}
 	img = Resize(img)
-	data, err = imageToData(img, handler.Filename)
+	data, err = imageToPNG(img)
 	if err != nil {
 		fmt.Fprintln(w, "error al processar la imatge")
 	}
-	err = ioutil.WriteFile(handler.Filename, data, 0777)
+	err = ioutil.WriteFile(fileName, data, 0777)
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	fmt.Fprintln(w, "url:", handler.Filename)
+	fmt.Fprintln(w, "url:", fileName)
 }

@@ -51,6 +51,13 @@ func imageToData(img image.Image, imageName string) ([]byte, error) {
 	return buf.Bytes(), err
 }
 
+func imageToPNG(img image.Image) ([]byte, error) {
+	buf := new(bytes.Buffer)
+	var err error
+	err = png.Encode(buf, img)
+	return buf.Bytes(), err
+}
+
 func Resize(img image.Image) image.Image {
 	r := resize.Resize(160, 0, img, resize.Lanczos3)
 	return r
