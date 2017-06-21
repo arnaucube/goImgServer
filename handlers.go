@@ -18,7 +18,7 @@ func ImageShow(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	imageName := vars["imageName"]
 
-	file, err := ioutil.ReadFile(imageName)
+	file, err := ioutil.ReadFile(config.Folder + "/" + imageName)
 	if err != nil {
 		fmt.Fprintln(w, err)
 	}
@@ -63,5 +63,5 @@ func NewImage(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(err)
 	}
 
-	fmt.Fprintln(w, "url:", fileName)
+	fmt.Fprintln(w, config.ServerIP+":"+config.ServerPort+"/images/"+fileName)
 }

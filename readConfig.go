@@ -7,6 +7,8 @@ import (
 )
 
 type Config struct {
+	ServerIP   string   `json:"serverIP"`
+	ServerPort string   `json:"serverPort"`
 	Folder     string   `json:"foldIPs`
 	BlockedIPs []string `json:"blockedIPs"`
 	AllowedIPs []string `json:"allowedIPs"`
