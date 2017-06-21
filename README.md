@@ -1,5 +1,5 @@
-# goImgCDN
-CDN for images, written in Go lang
+# goImgServer
+Server of images, written in Go lang
 
 This is a server to post images and serve images.
 File type accepted:
