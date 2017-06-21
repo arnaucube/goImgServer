@@ -63,5 +63,5 @@ func NewImage(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(err)
 	}
 
-	fmt.Fprintln(w, config.ServerIP+":"+config.ServerPort+"/images/"+fileName)
+	fmt.Fprintln(w, "http://"+config.ServerIP+":"+config.ServerPort+"/images/"+fileName)
 }
