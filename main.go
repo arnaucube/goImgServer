@@ -8,7 +8,7 @@ import (
 
 func main() {
 	readConfig("config.json")
-	fmt.Println(config)
+	fmt.Printf("%+v\n", config)
 
 	router := NewRouter()
 
